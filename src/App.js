@@ -1,36 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
-import { Component } from 'react';
+import logo from "./logo.svg";
+import "./App.css";
+import { Component } from "react";
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state ={
-      name: 'Renan Loureiro'
-    }
-  }
+  state = {
+    name: "Renan Loureiro",
+    counter: 0,
+  };
+  handlePClick = () => {
+    this.setState({ name: "Júnior" });
+  };
+  // Arrow function não tem this, por isso nao preciso usar o bind() como a handlePClick()
+  handleAClick = (e) => {
+    e.preventDefault();
+    const { counter } = this.state;
+    this.setState({ counter: counter + 1 });
+  };
 
-  handlePClick() {
-    console.log("<p> clicado")
-  }
-  
-  render(){
-    const {name} = this.state
+  render() {
+    const { name, counter } = this.state;
 
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p  onClick={this.handlePClick}>
-            Olá {name}
+          <p onClick={this.handlePClick}>
+            {name} - {counter}
           </p>
           <a
             className="App-link"
             href="https://reactjs.org"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={this.handleAClick}
           >
-            Learn React
+            Click aqui
           </a>
         </header>
       </div>
