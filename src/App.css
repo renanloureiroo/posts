@@ -1,10 +1,8 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -35,4 +33,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.div {
+  background-color: #000;
+  color: #fff;
+  padding: 2rem;
+  min-width: 200px;
+  flex: 0.33;
 }
