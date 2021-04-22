@@ -1,3 +1,4 @@
+import "./styles.css";
 //Usando destructuring já np lugar de props
 export const PostCard = ({ post }) => {
   return (
